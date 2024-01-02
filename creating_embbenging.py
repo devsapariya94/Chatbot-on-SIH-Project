@@ -1,7 +1,7 @@
 from llama_index.llms import Gemini
 from llama_index.embeddings import GeminiEmbedding
 from llama_index import VectorStoreIndex, ServiceContext, SimpleDirectoryReader
-from llama_index.vector_stores import ChromaVectorStore
+from llama_index.vector_stores import ChromaVectorStore,DeepLakeVectorStore, MilvusVectorStore
 from llama_index.storage.storage_context import StorageContext
 import os
 from dotenv import load_dotenv
@@ -18,10 +18,13 @@ documents = reader.load_data()
 
 
 
-db = chromadb.PersistentClient(path="./chroma_db")
-chroma_collection = db.get_or_create_collection("quickstart")
-vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
-storage_context = StorageContext.from_defaults(vector_store=vector_store)
-index = VectorStoreIndex.from_documents(
-    documents, storage_context=storage_context, service_context=service_context
-)
+# db = chromadb.PersistentClient(path="./chroma_db")
+# chroma_collection = db.get_or_create_collection("quickstart")
+# vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
+# storage_context = StorageContext.from_defaults(vector_store=vector_store)
+# index = VectorStoreIndex.from_documents(
+#     documents, storagecontext=storage_context, service_context=service_context
+# )
+
+
+

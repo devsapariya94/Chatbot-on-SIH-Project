@@ -1,3 +1,7 @@
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import streamlit as st
 from llama_index import VectorStoreIndex, ServiceContext
 from llama_index.llms import Gemini
@@ -12,7 +16,12 @@ def load_data():
         llm = Gemini(api_key=st.secrets["GOOGLE_GEMINI_AI"])
         emmbed_model = GeminiEmbedding(api_key=st.secrets["GOOGLE_GEMINI_AI"])
         service_context = ServiceContext.from_defaults(llm=llm, embed_model=emmbed_model, system_prompt="First, attempt to provide an answer based on the context And try to give answer in Detail.If the question is irrelevant with respect to the context then, kindly suggest asking it in the 'Contact Us' tab or Mail to 'devsapariya94@gmail.com'",)
+        __import__('pysqlite3')
+        import sys
+        sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
         import chromadb
+        
         from llama_index.vector_stores import ChromaVectorStore
         db = chromadb.PersistentClient(path="./chroma_db")
         chroma_collection = db.get_or_create_collection("quickstart")
