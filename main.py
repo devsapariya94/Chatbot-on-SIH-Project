@@ -15,7 +15,7 @@ def load_data():
 
         llm = Gemini(api_key=st.secrets["GOOGLE_GEMINI_AI"])
         emmbed_model = GeminiEmbedding(api_key=st.secrets["GOOGLE_GEMINI_AI"])
-        service_context = ServiceContext.from_defaults(llm=llm, embed_model=emmbed_model, system_prompt="First, attempt to provide an answer based on the context And try to give answer in Detail.If the question is irrelevant with respect to the context then, kindly suggest asking it in the 'Contact Us' tab or Mail to 'devsapariya94@gmail.com'",)
+        service_context = ServiceContext.from_defaults(llm=llm, embed_model=emmbed_model, system_prompt="First, attempt to provide an answer based on the context And try to give answer in Detail.If the question is irrelevant with respect to the context then, kindly suggest asking it in the 'Contact Us' tab or Mail to 'devsapariya94@gmail.com' (project means the solution on the problem statement)",)
         __import__('pysqlite3')
         import sys
         sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
@@ -51,6 +51,7 @@ with cl3:
         current = "contact"
 
 if current == "home":
+    st.write("This side project is just for fun 😊")
     st.title("Chat With the AI of Digital Fortress (About our Project of Smart India Hackathon-2023)")
     st.info("For More information Check out [this](https://www.linkedin.com/posts/imabhisht_working-model-presentation-activity-7136969797811982336-O70V?utm_source=share&utm_medium=member_desktop)", icon="📃")
     st.info("Can You Start with 'tell me about the team' or 'What is the problem Statement'", icon="🤔")
