@@ -1,0 +1,4 @@
+llama_index
+streamlit
+chromadb
+google-generativeai>=0.3.0
