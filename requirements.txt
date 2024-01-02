@@ -79,6 +79,7 @@ pyasn1-modules==0.3.0
 pydantic==2.5.3
 pydantic_core==2.14.6
 PyPika==0.48.9
+pysqlite3-binary==0.5.2.post2
 python-dateutil==2.8.2
 python-dotenv==1.0.0
 pytz==2023.3.post1
@@ -110,4 +111,3 @@ websockets==12.0
 wrapt==1.16.0
 yarl==1.9.4
 zipp==3.17.0
-
