@@ -8,8 +8,7 @@ from llama_index import SimpleDirectoryReader
 @st.cache_resource(show_spinner=False)
 def load_data():
     with st.spinner(text="Loading and indexing the Documents – hang tight! This should take 1-2 minutes."):
-        reader = SimpleDirectoryReader(input_dir="./data", recursive=True)
-        docs = reader.load_data()
+
         llm = Gemini(api_key=st.secrets["GOOGLE_GEMINI_AI"])
         emmbed_model = GeminiEmbedding(api_key=st.secrets["GOOGLE_GEMINI_AI"])
         service_context = ServiceContext.from_defaults(llm=llm, embed_model=emmbed_model, system_prompt="First, attempt to provide an answer based on the context And try to give answer in Detail.If the question is irrelevant with respect to the context then, kindly suggest asking it in the 'Contact Us' tab or Mail to 'devsapariya94@gmail.com'",)
