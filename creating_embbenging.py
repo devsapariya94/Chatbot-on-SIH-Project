@@ -11,7 +11,7 @@ load_dotenv()
 llm = Gemini(api_key=os.getenv("GOOGLE_GEMINI_AI"))
 embedding_model = GeminiEmbedding(api_key=os.getenv("GOOGLE_GEMINI_AI"))
 
-service_context = ServiceContext.from_defaults(llm=llm, embed_model=embedding_model, system_prompt="First, attempt to provide an answer based on the context And try to give answer in Detail.If the question is irrelevant with respect to the context then, kindly suggest asking it in the 'Contact Us' tab or Mail to 'devsapariya94@gmail.com' (project means the solution on the problem statement)",)
+service_context = ServiceContext.from_defaults(llm=llm, embed_model=embedding_model, system_prompt="First, attempt to provide an answer based on the context And try to give answer in Detail.If the question is irrelevant with respect to the context then, kindly suggest asking it in the 'Contact Us' tab or Mail to 'devsapariya94@gmail.com' (project means the solution on the problem statement)")
 reader = SimpleDirectoryReader(input_dir="./data", recursive=True)
 documents = reader.load_data()
 

@@ -65,6 +65,11 @@ if current == "home":
     if prompt:  # Prompt for user input and save to chat history
         st.session_state.messages.append({"role": "user", "content": prompt})
 
+        # Display the prior chat messages
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.write(message["content"])
+            
     # If the last message is not from the assistant, generate a new response
     if st.session_state.messages and st.session_state.messages[-1]["role"] != "assistant":
         current = "home"
@@ -75,10 +80,7 @@ if current == "home":
             message = {"role": "assistant", "content": response.response}
             st.session_state.messages.append(message)  # Add response to message history
 
-    # Display the prior chat messages
-    for message in st.session_state.messages:
-        with st.chat_message(message["role"]):
-            st.write(message["content"])
+
 
 about_us_content = """
 ## Project Overview
